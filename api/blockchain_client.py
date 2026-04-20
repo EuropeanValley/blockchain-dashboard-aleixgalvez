@@ -35,3 +35,25 @@ def get_difficulty_history(n_points: int = 100) -> list[dict]:
     response.raise_for_status()
     data = response.json()
     return data.get("values", [])[-n_points:]
+
+
+def get_current_difficulty() -> float:
+    """Return the current Bitcoin network difficulty."""
+    response = requests.get(f"{BASE_URL}/q/getdifficulty", timeout=10)
+    response.raise_for_status()
+    return float(response.text)
+
+
+if __name__ == "__main__":
+    latest = get_latest_block()
+    block = get_block(latest["hash"])
+    difficulty = get_current_difficulty()
+
+    print("Height:", latest["height"])
+    print("Hash:", latest["hash"])
+    print("Difficulty:", difficulty)
+    print("Nonce:", block["nonce"])
+    print("Tx count:", block["n_tx"])
+    print("Bits:", block["bits"])
+    # Leading zeros in the hash are a consequence of the PoW target.
+    # The bits field is the compact representation of that target threshold.
