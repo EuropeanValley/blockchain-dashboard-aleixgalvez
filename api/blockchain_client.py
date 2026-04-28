@@ -36,12 +36,19 @@ def get_block_hash_by_height(height: int) -> str:
     response.raise_for_status()
     return response.text.strip()
 
+def get_block_txids(block_hash: str) -> list[str]:
+    """Return all transaction IDs for a given block."""
+    response = requests.get(f"{BLOCKSTREAM_URL}/block/{block_hash}/txids", timeout=20)
+    response.raise_for_status()
+    return response.json()
+
 
 def get_current_difficulty() -> float:
     """Return the current Bitcoin network difficulty."""
     response = requests.get(f"{BLOCKCHAIN_INFO_URL}/q/getdifficulty", timeout=10)
     response.raise_for_status()
     return float(response.text)
+
 
 
 def get_difficulty_history(n_points: int = 100) -> list[dict]:
