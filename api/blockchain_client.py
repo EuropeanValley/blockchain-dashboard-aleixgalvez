@@ -30,6 +30,13 @@ def get_block(block_hash: str) -> dict:
     return response.json()
 
 
+def get_block_hash_by_height(height: int) -> str:
+    """Return the block hash for a given block height."""
+    response = requests.get(f"{BLOCKSTREAM_URL}/block-height/{height}", timeout=10)
+    response.raise_for_status()
+    return response.text.strip()
+
+
 def get_current_difficulty() -> float:
     """Return the current Bitcoin network difficulty."""
     response = requests.get(f"{BLOCKCHAIN_INFO_URL}/q/getdifficulty", timeout=10)
@@ -61,4 +68,4 @@ if __name__ == "__main__":
     print("Tx count:", block["tx_count"])
     print("Bits:", block["bits"])
     # Leading zeros in the hash are a consequence of the PoW target.
-    # The bits field is the compact representation of that target threshold.    
+    # The bits field is the compact representation of that target threshold.
