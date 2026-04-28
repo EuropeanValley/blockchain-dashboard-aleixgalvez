@@ -21,25 +21,27 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 | Module | What it should include | Status |
 |---|---|---|
-| M1 | Proof of Work Monitor | In progress |
-| M2 | Block Header Analyzer | Not started |
-| M3 | Difficulty History | Not started |
-| M4 | AI Component | Not started |
+| M1 | Proof of Work Monitor | Done |
+| M2 | Block Header Analyzer | Done |
+| M3 | Difficulty History | Done |
+| M4 | AI Component | Done |
 
 ## Current Progress
 
-- GitHub Classroom repository accepted successfully.
-- Project template reviewed and repository structure checked.
-- README updated with initial project information.
-- First blockchain API call tested successfully with real Bitcoin block data.
+- GitHub Classroom repository accepted and project structure reviewed successfully.
+- The blockchain API client was implemented and tested with real Bitcoin data from public APIs.
+- M1 was completed with live Proof of Work metrics such as block height, difficulty, transaction count, hash, nonce, bits, and leading zeros.
+- M2 was completed with block header analysis and local Proof of Work verification using reconstructed 80-byte headers and double SHA-256.
+- M3 was completed with difficulty history visualizations across adjustment periods and block-time ratio analysis against the 600-second target.
+- M4 was completed with an anomaly detector for unusual inter-block times based on an exponential baseline.
 
 ## Next Step
 
-- Integrate the API data into the dashboard and start Module M1.
+- Refine the dashboard presentation, update documentation, and prepare the final report with model explanation, evaluation, and references.
 
 ## Main Problem or Blocker
 
-- No major blocker at the moment.
+- No major blocker at the moment. The current focus is polishing the project and documenting the final results.
 
 ## How to Run
 
@@ -64,7 +66,7 @@ template-blockchain-dashboard/
     |-- m3_difficulty_history.py
     `-- m4_ai_component.py
 ```
-```
+
 
 <!-- student-repo-auditor:teacher-feedback:start -->
 ## Teacher Feedback
