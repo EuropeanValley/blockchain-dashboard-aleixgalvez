@@ -61,4 +61,4 @@ if __name__ == "__main__":
     print("Tx count:", block["tx_count"])
     print("Bits:", block["bits"])
     # Leading zeros in the hash are a consequence of the PoW target.
-    # The bits field is the compact representation of that target threshold.
+    # The bits field is the compact representation of that target threshold.    
