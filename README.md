@@ -25,6 +25,9 @@ Use one of these values: `Not started`, `In progress`, `Done`
 | M2 | Block Header Analyzer | Done |
 | M3 | Difficulty History | Done |
 | M4 | AI Component | Done |
+| M5 | Merkle Proof Verifier | Done |
+| M6 | Security Score | Done |
+| M7 | Second AI Approach | Done |
 
 ## Current Progress
 
@@ -33,15 +36,18 @@ Use one of these values: `Not started`, `In progress`, `Done`
 - M1 was completed with live Proof of Work metrics such as block height, difficulty, transaction count, hash, nonce, bits, and leading zeros.
 - M2 was completed with block header analysis and local Proof of Work verification using reconstructed 80-byte headers and double SHA-256.
 - M3 was completed with difficulty history visualizations across adjustment periods and block-time ratio analysis against the 600-second target.
-- M4 was completed with an anomaly detector for unusual inter-block times based on an exponential baseline.
+- M4 was completed with an anomaly detector for unusual inter-block times based on an exponential baseline, including timestamp anomaly handling.
+- M5 was completed with a Merkle proof verifier that reconstructs the proof path step by step and checks whether the computed Merkle root matches the official block Merkle root.
+- M6 was completed with a security score module that estimates the cost of a 51% attack and visualizes attack success probability as the number of confirmations increases.
+- M7 was completed with a second AI approach based on a regression model that predicts the next Bitcoin difficulty adjustment and compares its performance against a naive baseline.
 
 ## Next Step
 
-- Refine the dashboard presentation, update documentation, and prepare the final report with model explanation, evaluation, and references.
+- Finalize the report PDF, review the dashboard presentation, and make a final full test of all modules before submission.
 
 ## Main Problem or Blocker
 
-- No major blocker at the moment. The current focus is polishing the project and documenting the final results.
+- No major blocker at the moment. The current focus is polishing the final delivery and documentation.
 
 ## How to Run
 
@@ -60,20 +66,24 @@ template-blockchain-dashboard/
 |-- app.py
 |-- api/
 |   `-- blockchain_client.py
-`-- modules/
-    |-- m1_pow_monitor.py
-    |-- m2_block_header.py
-    |-- m3_difficulty_history.py
-    `-- m4_ai_component.py
+|-- modules/
+|   |-- m1_pow_monitor.py
+|   |-- m2_block_header.py
+|   |-- m3_difficulty_history.py
+|   |-- m4_ai_component.py
+|   |-- m5_merkle_proof.py
+|   |-- m6_security_score.py
+|   `-- m7_difficulty_predictor.py
+`-- report/
+    `-- final_report.pdf
 ```
-
 
 <!-- student-repo-auditor:teacher-feedback:start -->
 ## Teacher Feedback
 
 ### Kick-off Review
 
-Review time: 2026-04-20 13:31 CEST
+Review time: 2026-04-20 13:31 CEST  
 Status: Green
 
 Strength:
